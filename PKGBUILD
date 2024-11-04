@@ -10,8 +10,13 @@ makedepends=('go' 'git')
 source=("git+https://github.com/jackinthebox52/osrs-items.git")
 sha256sums=('SKIP')
 
+prepare() {
+    cd "$srcdir/$pkgname"
+    ./script/download-items.sh
+}
+
 build() {
-    cd "$pkgname"  # Changed from "$pkgname-$(cat VERSION)"
+    cd "$srcdir/$pkgname"
     export CGO_CPPFLAGS="${CPPFLAGS}"
     export CGO_CFLAGS="${CFLAGS}"
     export CGO_CXXFLAGS="${CXXFLAGS}"
@@ -22,6 +27,6 @@ build() {
 }
 
 package() {
-    cd "$pkgname"  # Changed from "$pkgname-$(cat VERSION)"
+    cd "$srcdir/$pkgname"
     install -Dm755 $pkgname "$pkgdir/usr/bin/$pkgname"
 }

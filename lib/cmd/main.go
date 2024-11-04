@@ -5,7 +5,7 @@ import (
 	"os"
 	"strconv"
 
-	"github.com/yourusername/osrs-items/data"
+	"github.com/jackinthebox52/osrs-items/lib/data"
 )
 
 func main() {
