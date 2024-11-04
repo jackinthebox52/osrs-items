@@ -1,1 +1,3 @@
 implement vector search for item names, to allow for searching for name strings and grabbing the closest match
+
+make string input modify the users input by replacing spaces with underscores, and uppercasing the input string
